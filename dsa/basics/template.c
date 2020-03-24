@@ -4,7 +4,7 @@ struct Rectangle
 {
 int l;
 int b;
-}
+};
 
 void initialize(struct Rectangle *r, int le, int br)
 {
@@ -13,17 +13,18 @@ void initialize(struct Rectangle *r, int le, int br)
 }
 int area(struct Rectangle r)
 {
-return r.l*r.b
+return r.l*r.b;
 }
 void changeLength(struct Rectangle *r, int nl)
 {
-r->l = nl
+r->l = nl;
 }
-}
+
 int main()
 {
 struct Rectangle r;
 initialize(&r,5,10);
 int a = area(r);
-changeLength(r,20)
+changeLength(&r,20);
+printf("Area of the rectangle is: %d\n",a);
 }
