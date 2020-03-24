@@ -19,11 +19,11 @@ void changeLength(struct Rectangle *r, int nl)
 {
 r->l = nl
 }
-
-
-
 }
 int main()
 {
-printf("Hello");
+struct Rectangle r;
+initialize(&r,5,10);
+int a = area(r);
+changeLength(r,20)
 }
