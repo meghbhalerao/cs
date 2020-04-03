@@ -2,9 +2,10 @@
 
 class Rectangle
 {
-int l;
-int b;
-// functions are meant for that class/structure
+private:
+    int l;
+    int b;
+// functions are meant for that class/structure - constructor having same name as the class
 Rectangle(int le, int br)
 {
 l = le;
