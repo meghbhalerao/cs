@@ -5,7 +5,7 @@ class Rectangle
 int l;
 int b;
 // functions are meant for that class/structure
-void initialize(int le, int br)
+Rectangle(int le, int br)
 {
 l = le;
 b = br;
