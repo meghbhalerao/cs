@@ -1,0 +1,17 @@
+Array can be created either inside stack or heap
+Array memory locations are contiguous 
+Linked list length can grow or reduce dynamically
+Linked list always created in a heap
+Head pointer can be in stack
+Linked list size might or might not be known
+The above two are physical data structures 
+Physical data structures are meant for actually storing the data
+How to perform the operations on those stored values??
+These are decided by the logical data strcuture
+Stack - LIFO 
+Queue - FIFO
+Trees - linear
+Graph - non linear
+Hash tables
+Logical data structures are implemented using physical data structures
+Implementatinon using arrays and linked lists
