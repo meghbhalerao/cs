@@ -9,3 +9,12 @@ appending to list
 removing some elements 
 search for an element 
 Representation of all datatype as abstarct datatypes
+Oprations on a list
+Appending to the end of the list or beginning of a list 
+Add an element at some given index - inserting an element at a given index
+Removing or deleting an element from a given index
+Set some value of some element at a given index or can be called as replacing an element
+Get some element from a given index
+Search for an element given the index, contains key - whether the key contains the element or not
+Sort a numerical list
+Split or combine list

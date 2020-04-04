@@ -18,3 +18,5 @@ Space complexity - function of space/storage taken by the data structure
 
 For using code to calculate time complexity:
 Find the time function using code - and see the highest degree polynomial
+
+O - big)
