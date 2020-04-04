@@ -1,0 +1,20 @@
+Time Complexity 
+Max time taken as a function of n
+Order(n) - O(n) - this is the representation of time complexity
+for accessing all elements in array
+for(i=0;i<n;i++)
+{}
+from the program code also we can find the time complexity
+Time complexity is written in order of the max degree of the polynomial
+Suppose something like the binary sort:
+log(n) for binary search
+Length of list being divided by 2 - then the time complexity is log(2)
+Linked list ops are similar to that of array - and even time complexity is same
+Binary tree searching given height n - log(n)
+Time complexity depends on what work you are doing
+
+
+Space complexity - function of space/storage taken by the data structure
+
+For using code to calculate time complexity:
+Find the time function using code - and see the highest degree polynomial

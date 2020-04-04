@@ -1,0 +1,11 @@
+Abstract data type:
+datatype : operatons and representation of data
+1 bit is sign bit and others are meant for storing numbers in integer data type data
+Abstract means hiding internal details - operations are abstracted from the user - need not know how bitwise ops are performed. int and alll r primitive datatype
+abstract data type : in OOPs
+Representation of list can be done using array and linked list
+Operations on list:
+appending to list 
+removing some elements 
+search for an element 
+Representation of all datatype as abstarct datatypes
