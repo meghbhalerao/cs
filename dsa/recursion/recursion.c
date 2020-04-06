@@ -46,3 +46,4 @@ int main()
 // created only once in the code section and it is not initialized again and again
 //  n has its own value in each call but x has the same value 5 which is utilized by all
 // Even if x is created outside - i.e a global variable
+// Best way think about recursion is like mathematical induction with a suitable seed
