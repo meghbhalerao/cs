@@ -18,3 +18,11 @@ Get some element from a given index
 Search for an element given the index, contains key - whether the key contains the element or not
 Sort a numerical list
 Split or combine list
+
+C - array length decided during compile time
+C++ - array length decided during runtime
+Memory allocated for any varible defined in program is in stack
+Heap memory accessed using pointers
+p = new int[5] - C++
+p = (int*) malloc(5*sizeof(int)); - C
+malloc function typecasted to integer pointer pointing to the memory location using Heap

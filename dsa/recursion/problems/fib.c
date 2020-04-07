@@ -46,8 +46,6 @@ int mfib(int n)
 
 }
 
-
-
 int main()
 {
 int i;
