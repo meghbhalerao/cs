@@ -26,3 +26,9 @@ Heap memory accessed using pointers
 p = new int[5] - C++
 p = (int*) malloc(5*sizeof(int)); - C
 malloc function typecasted to integer pointer pointing to the memory location using Heap
+Memory must be deleted since then memory leak happens
+free(p) - C
+delete []p - C++
+memory must be freed after the program ends since then that memory will be simply occupied
+Pointer acts as a name of an array 
+Stack array can't be resized but heap array can be
