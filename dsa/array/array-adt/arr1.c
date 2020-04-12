@@ -17,7 +17,7 @@ void Display(struct Array arr)
     }
 }
 int main()
-{
+{   
     struct Array arr;
     int n,i;
     printf("Enter size of array");
