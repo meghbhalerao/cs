@@ -32,8 +32,6 @@ for(int i=0;i<(arr->length)/2;i++)
 swap(&arr->A[i],&arr->A[arr->length-i-1]);
 }
 }
-
-
 int main()
 {
     struct Array arr = {{1,2,3,4,5,6,7,8,9,10,11,12,13,14},20,14};
