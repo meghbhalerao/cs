@@ -23,7 +23,7 @@ void Merge(struct Array *arr1, struct Array *arr2, struct Array *arr)
 {
     int i=0,j=0,k=0;
     for(i=0,j=0;i<arr1->length && j<arr2->length;)
-    {   // printf("%d %d \n",i,j);
+    {   
         if(arr1->A[i]<arr2->A[j])
         {
             arr->A[k] = arr1->A[i];
