@@ -68,17 +68,11 @@ void Intersection(struct Array *arr1, struct Array *arr2, struct Array *arr)
     {   
         if(arr1->A[i]<arr2->A[j])
         {
-        
             i++;
-            
-
         }
         else if(arr1->A[i]>arr2->A[j])
         {
-    
-            j++;
-           
-
+            j++;  
         }
         else 
         {
@@ -90,8 +84,36 @@ void Intersection(struct Array *arr1, struct Array *arr2, struct Array *arr)
         }
 
     }
+arr->length = k;
+}
 
+void Difference(struct Array *arr1, struct Array *arr2, struct Array *arr)
+{
+    int i=0,j=0,k=0;
+    for(i=0,j=0;i<arr1->length && j<arr2->length;)
+    {   
+        if(arr1->A[i]<arr2->A[j])
+        {
+            arr->A[k] = arr1->A[i];
+            i++;
+            k++;
+        }
+        else if(arr1->A[i]>arr2->A[j])
+        {
+            j++;
 
+        }
+        else 
+        {
+            i++;
+            j++;
+        }
+    }
+
+for(;i<arr1->length;i++)
+{
+    arr->A[k++] = arr1->A[i];
+}
 arr->length = k;
 
 }
@@ -106,8 +128,10 @@ int main()
     printf("\n");
     Intersection(&arr1,&arr2,&arr);
     Display(arr);
+    printf("\n");
+    Difference(&arr1,&arr2,&arr);
+    Display(arr);
 
-    
     return 0;
 }
 
