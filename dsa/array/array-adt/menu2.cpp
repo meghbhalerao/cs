@@ -325,8 +325,7 @@ cout<<"enter you choice ";
 cin>>ch;
 switch(ch)
 {
-case 1: cout<<"Enter an element and
-index ";
+case 1: cout<<"Enter an element and index ";
 cin>>x>>index;
 arr1->Insert(index,x);
 break;
@@ -335,8 +334,7 @@ cin>>index;
 x=arr1->Delete(index);
 cout<<"Deleted Element is"<<x;
 break;
-case 3:cout<<"Enter element to search
-";
+case 3:cout<<"Enter element to search";
 cin>>x;
 index=arr1->LinearSearch(x);
 cout<<"Element index "<<index;
