@@ -22,16 +22,23 @@ class TriDiagonal
     }
 
     int Get(int i, int j);
-    
     void Display();
 };
 
 
 int TriDiagonal::Get(int i, int j)
 {
-    if(i<=j)
+    if(i-j==1)
     {
-        return A[i*(i-1)/2+j];
+        return A[i-1];
+    }
+    else if(i==j)
+    {
+        return A[i+n-1];
+    }
+    else if(i-j==-1)
+    {
+        return A[i+2*n-1];
     }
     else
     {
@@ -45,14 +52,22 @@ void TriDiagonal::Display()
     {
         for(j=0;j<n;j++)
         {
-            if(i>=j)
-            {
-                std::cout<<A[i*(i+1)/2+j]<<" ";
-            }
-            else
-            {
-                cout<<"0 ";
-            }
+    if(i-j==1)
+    {
+        cout<<A[i-1]<<" ";
+    }
+    else if(i==j)
+    {
+        cout<<A[i+n-1]<<" ";
+    }
+    else if(i-j==-1)
+    {
+        cout<<A[i+2*n-1]<<" ";
+    }
+    else
+    {
+        cout<<"0 ";
+    }
                     
         }
     cout<<"\n";
@@ -61,10 +76,9 @@ void TriDiagonal::Display()
 
 }
 
-
 int main()
 {
-    int A[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+    int A[] = {1,2,3,4,5,6,7,8,9,1,3,5,8};
     TriDiagonal td1 = TriDiagonal(A,5);
     int element = td1.Get(1,2);
 
