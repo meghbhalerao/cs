@@ -27,25 +27,23 @@ else
     }
 }
 }
-void perm2(char* s,int l, int h)
+void perm2(char* s,int l, int H)
 {
 int i;
-if(l==h)
+if(l==H)
 {
     puts(s);
 }
 else
 {
-for(i=l;i<=h;i++)
+for(i=l;i<=H;i++)
 {
     swap(s[l],s[i]);
-    perm2(s,l+1,h);
+    perm2(s,l+1,H);
     swap(s[l],s[i]);
 }
 }
 }
-
-
 int main()
 {
     char* s = "ABC";

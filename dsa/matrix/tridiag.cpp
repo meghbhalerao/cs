@@ -25,7 +25,6 @@ class TriDiagonal
     void Display();
 };
 
-
 int TriDiagonal::Get(int i, int j)
 {
     if(i-j==1)
