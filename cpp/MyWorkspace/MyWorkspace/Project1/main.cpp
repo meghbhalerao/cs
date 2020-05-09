@@ -7,6 +7,7 @@ int main()
 {
     int a;
     std::cout<<"Enter something";
+    std::cout<<a;
     std::cin>>a;
     std::cout<<a;
     return 0;

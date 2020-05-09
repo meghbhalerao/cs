@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/Applications/codelite.app/Contents/SharedSupport/
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/linker_error.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
 
 
 
@@ -91,6 +91,12 @@ PreBuild:
 ##
 ## Objects
 ##
+$(IntermediateDirectory)/linker_error.cpp$(ObjectSuffix): linker_error.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/linker_error.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/linker_error.cpp$(DependSuffix) -MM linker_error.cpp
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/megh/Work/github-repos/cs-stuff/cpp/MyWorkspace/MyWorkspace/Project1/linker_error.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/linker_error.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/linker_error.cpp$(PreprocessSuffix): linker_error.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/linker_error.cpp$(PreprocessSuffix) linker_error.cpp
+
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM main.cpp
 	$(CXX) $(IncludePCH) $(SourceSwitch) "/Users/megh/Work/github-repos/cs-stuff/cpp/MyWorkspace/MyWorkspace/Project1/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)

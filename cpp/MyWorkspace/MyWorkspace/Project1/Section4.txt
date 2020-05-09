@@ -1,1 +1,1 @@
-Debug/main.cpp.o
+Debug/linker_error.cpp.o Debug/main.cpp.o
