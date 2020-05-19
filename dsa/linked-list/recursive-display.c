@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-// Defining a structure for the elementary builfing block of a linked list which is a node
+// Defining a structure for the elementary builfing block of a linked list which is a node - the difference betweeen linked list and other data structures is that the linked list is a dynamic data structure and hence the size of the linked list is not fixed but rather very much user dependent - here we can also make another observation that we define only a structure for a node in a linked list but not for the entire linked list - also the linked list is created in a heap except for the first pointer to the linked list which points to the first node and hence we can't physically see the linked list in our program since it is present in the heap and is connected via pointers
 struct Node
 {
     int data;
@@ -24,7 +24,7 @@ void Create(int A[], int n)
         t->data =  A[i];
         // since as of now this is the last node in the linked list - since as of now nothing mode has been added after this - hence we set the next value as NULL in this temp variable
         t->next = NULL;
-        // assigning the previous node's address column tp the last node's address
+        // assigning the previous node's address column to the last node's address
         last->next = t;
         // setting the last node as the node which is added latest i.e. t
         last = t;
@@ -36,10 +36,23 @@ void Create(int A[], int n)
 // Displaying the linked list
 void Display(struct Node* p)
 {
-    while(p!=NULL)
+    if(p!=NULL)
     {
         printf("%d ", p->data);
-        p = p->next;
+        Display(p->next);
+    }
+}
+
+
+// Display reverse linked list using recursion - in the reverse order
+
+void RDisplay(struct Node* p)
+{
+    if(p!=NULL)
+    {   
+        RDisplay(p->next);
+        printf("%d ", p->data);
+
     }
 }
 
@@ -52,6 +65,10 @@ int main()
 
     // Passing the first pointer to the linked list
     Display(first);
+
+    printf("\n");
+
+    RDisplay(first);
 
     return 0;
 }
