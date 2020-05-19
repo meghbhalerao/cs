@@ -9,7 +9,7 @@ struct Node
 
 }* first = NULL;
 
-// Function for creating a linked list using the pointer to the first node of the linked list and using the array given in the main function
+// Function for creating a linked list
 void Create(int A[], int n)
 {
     struct Node *t, *last;
@@ -43,43 +43,22 @@ void Display(struct Node* p)
     }
 }
 
-// Here we are assuming and hence we are passing a pointer to a node of a linked list
-int count(struct Node* ptr)
-{
-int ctr = 0;
-while(ptr!=NULL)
-{
-    ctr+=1;
-    ptr = ptr->next;
-}
-return ctr;
-}
-// recursive counting number of elements in the linked list
-int RCount(struct Node* ptr)
+
+
+// Sum of elements in linked list
+int RecursiveSum(struct Node* ptr)
 {
     if(ptr!=NULL)
     {
-        return RCount(ptr->next) + 1;
+        return RecursiveSum(ptr->next) + ptr->data;
     }
+
     else
     {
         return 0;
     }
     
 }
-
-int R2Count(struct Node* ptr)
-{
-    if(ptr==NULL)
-    {
-        return 0;
-    }
-    else
-    {
-        return R2Count(ptr->next) + 1;
-    }
-}
-
 
 
 int main()
@@ -91,16 +70,10 @@ int main()
     // Passing the first pointer to the linked list
     Display(first);
 
+    // calculating the sum of the linked list
     printf("\n");
-    // counting and printing the number of elements in the linked list
-    printf("The number of elements in the linked list are: %d",count(first));
 
-  // counting and printing the number of elements in the linked list
-    printf("\nThe number of elements in the linked list using recursive methods are: %d",RCount(first));
-
-  // counting and printing the number of elements in the linked list
-    printf("\nThe number of elements in the linked using second method of reusrion list are: %d",R2Count(first));
-    
+    printf("The sum of the elements in the linked list is: %d",RecursiveSum(first));
 
     return 0;
 }
