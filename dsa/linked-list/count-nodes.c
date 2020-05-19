@@ -43,6 +43,16 @@ void Display(struct Node* p)
     }
 }
 
+// Here we are assuming and hence we are passing a pointer to a node of a linked list
+int count(struct Node* ptr)
+{
+
+}
+
+
+
+
+
 
 int main()
 {
