@@ -4,9 +4,15 @@ struct Node
 {
 int data;
 struct Node *next;
-}*first=NULL;
-
-
+}*first=NULL,*second=NULL,*third=NULL;
+void Display(struct Node *p)
+{
+while(p!=NULL)
+{
+printf("%d ",p->data);
+p=p->next;
+}
+}
 void create(int A[],int n)
 {
 int i;
@@ -24,31 +30,42 @@ last->next=t;
 last=t;
 }
 }
-
-
-void Display(struct Node *p)
+void RemoveDuplicate(struct Node *p)
 {
-while(p!=NULL)
+struct Node *q=p->next;
+while(q!=NULL)
 {
-printf("%d ",p->data);
-p=p->next;
+if(p->data!=q->data)
+{
+p=q;
+q=q->next;
+}
+else
+{
+p->next=q->next;
+free(q);
+q=p->next;
 }
 }
-
-void RDisplay(struct Node *p)
-{
-if(p!=NULL)
-{
-RDisplay(p->next);
-printf("%d ",p->data);
 }
-}
-
 int main()
 {
-struct Node *temp;
-int A[]={3,5,7,10,25,8,32,2};
+int A[]={10,20,20,40,50,50,50,60};
 create(A,8);
+RemoveDuplicate(first);
 Display(first);
 return 0;
+}
+
+
+
+
+void DeleteRepeated(struct Node* ptr)
+{
+struct Node* ptr_trail = ptr;
+while(ptr!= NULL)
+{
+    printf("%d", ptr->data);
+    ptr = ptr->next;
+}
 }
