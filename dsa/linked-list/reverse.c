@@ -77,8 +77,6 @@ void RecursiveReverse(struct Node* ptr, struct Node* ptr_next)
 
 
 
-
-
 int main()
 {
     int A[] = {3,5,7,10,15};
