@@ -32,49 +32,6 @@ struct Node* Create(struct Node* first, int A[], int n)
 return first;
 }
 
-// Function to merge 2 linked lists
-struct Node* Merge(struct Node* list1, struct Node* list2)
-{   
-    // all this is made in the stack
-    struct Node* merged;
-    struct Node* t;
-    struct Node* first;
-    // this is allocating the memory in the heap
-    first = (struct Node*)malloc(sizeof(struct Node));
-    merged = first;
-
-    while(list1->next!=NULL && list2->next!=NULL)
-    {
-        // make a new linked list node and concatenate it to the merged list
-        t = (struct Node*)malloc(sizeof(struct Node));
-        if(list1->data<list2->data)
-        {   
-            t->data=list1->data;
-            list1 = list1->next;
-            t->next=NULL;
-        }
-        else
-        {
-            t->data=list2->data;
-            list2 = list2->next;
-            t->next = NULL;
-        }
-        merged->next = t;
-        merged = merged->next;
-
-        if(list1->next == NULL)
-        {
-            merged->next = list2;
-        }
-        else
-        {
-            merged->next = list1;
-        }
-
-    }
-
-return first;
-}
 
 // Displaying the linked list
 void Display(struct Node* p)
@@ -88,15 +45,9 @@ void Display(struct Node* p)
 
 int main()
 {   
-    int key = 10;
-    int A[] = {3,5,7,10,15};
-    int B[] = {2,4,6,8,13};
-    struct Node *list1, *list2;
+    int A[] = {2,4,6,8,13};
+    struct Node *list1;
     list1  = Create(list1,A,5);
-    list2 = Create(list2,B,5);
-    struct Node *merged;
-    merged = Merge(list1,list2);
-    Display(merged);
     return 0;
 }
 
