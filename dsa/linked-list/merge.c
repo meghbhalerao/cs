@@ -1,8 +1,6 @@
 // Here while searching in a linked list - we must keep in mind that we cannot reach to any element in the linked list simply - i.e we can only reach elements in linked lists by traversing the linked list - unlike an array where we can reach elements directly from indexing - code to improve search in linked list using transposition
-
 #include<stdio.h>
 #include<stdlib.h>
-
 // Defining a structure for the elementary builfing block of a linked list which is a node
 struct Node
 {
@@ -33,29 +31,49 @@ struct Node* Create(struct Node* first, int A[], int n)
     }
 return first;
 }
+
 // Function to merge 2 linked lists
 struct Node* Merge(struct Node* list1, struct Node* list2)
-{
-    struct Node* merged_first, *merged_last;
+{   
+    // all this is made in the stack
+    struct Node* merged;
+    struct Node* t;
+    struct Node* first;
+    // this is allocating the memory in the heap
+    first = (struct Node*)malloc(sizeof(struct Node));
+    first = merged;
 
     while(list1->next!=NULL && list2->next!=NULL)
     {
+        // make a new linked list node and concatenate it to the merged list
+        t = (struct Node*)malloc(sizeof(struct Node));
         if(list1->data<list2->data)
         {   
-            merged_first = merged_last = list1;
-            list1->next = list2;
-            list2 = list2->next;
+            t->data=list1->data;
             list1 = list1->next;
+            t->next=NULL;
         }
         else
         {
-            list2->next = list2;
+            t->data=list2->data;
             list2 = list2->next;
-            list1 = list1->next;
+            t->next = NULL;
         }
-        
+        merged->next = t;
+        merged = t;
+
+        if(list1->next == NULL)
+        {
+            merged->next = list2;
+        }
+        else
+        {
+            merged->next = list1;
+        }
+
     }
-return merged;
+
+return first;
 }
 
 // Displaying the linked list
@@ -77,9 +95,9 @@ int main()
     list1  = Create(list1,A,5);
     list2 = Create(list2,B,5);
     struct Node *merged;
-
+    Display(list1);
     merged = Merge(list1,list2);
-
+    Display(merged);
     return 0;
 }
 
