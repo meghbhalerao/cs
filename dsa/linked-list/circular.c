@@ -8,46 +8,64 @@ struct Node
     struct Node *next;
 
 };
-// Function for creating a linked list - parameters are
-struct Node* Create(struct Node* first, int A[], int n)
-{
-    struct Node *t, *last;
-    first = (struct Node*)malloc(sizeof(struct Node));
-    first->data = A[0];
-    first->next = NULL;
-    last = first;
-    for(int i=1;i<n;i++)
-    {    
-        // now we want to create a new node temp - hence we make use of a varible t - to create a temporary node and then assign that node to be the last node 
-        t = (struct Node*)malloc(sizeof(struct Node));
-        t->data =  A[i];
-        // since as of now this is the last node in the linked list - since as of now nothing mode has been added after this - hence we set the next value as NULL in this temp variable
-        t->next = NULL;
-        // assigning the previous node's address column tp the last node's address
-        last->next = t;
-        // setting the last node as the node which is added latest i.e. t
-        last = t;
 
-    }
-return first;
+// function to create a circular linked list - paramters are - the array, the array key where the head node should be pointing, and the head node which indicates the start of the linked list, and the number of elements in the array
+struct Node* CreateCircular(int A[], int pos, int n)
+{
+struct Node* temp_first, *t, *indicator;
+temp_first = (struct Node*)malloc(sizeof(struct Node));
+temp_first->data = A[0];
+temp_first->next = NULL;
+indicator = temp_first;
+
+
+for (int i = 1; i < n;i++)
+{   
+    // creating a standard linked list - later we append the head node
+    t = (struct Node*)malloc(sizeof(struct Node));
+    t->data =  A[i];
+    t->next = NULL;
+    indicator->next = t;
+    indicator = indicator->next;
+
+}
+// connecting the ends of the linked list of node
+indicator->next = temp_first;
+// going upto the head position where we want to be the reference node of the linked list
+// defining another pointer to iterate through the linked list which is starting with the temp_first pointer which is already pointing at the start of the linked list - we must always make sure - espicially when using a linked list - never lose the index of the first pointer which points at the first element of the linked list - and then later we can free up the memories
+struct Node* ptr = temp_first;
+for(int i = 0; i < pos - 1; i++)
+{
+    ptr = ptr->next;
+}
+// setting this pointer to the next of the head node
+struct Node* head_2 = (struct Node*)malloc(sizeof(struct Node));
+head_2->next = ptr;
+
+return head_2;
 }
 
-
-// Displaying the linked list
-void Display(struct Node* p)
+void DisplayCircular(struct Node* head)
 {
-    while(p!=NULL)
-    {
-        printf("%d ", p->data);
-        p = p->next;
-    }
+struct Node *ptr = head->next;
+do 
+{
+    printf("%d ", ptr->data);
+    ptr = ptr->next;
+
+}while(ptr!=head->next);
+
 }
 
 int main()
-{   
-    int A[] = {2,4,6,8,13};
-    struct Node *list1;
-    list1  = Create(list1,A,5);
+{   // array to store value in a circular linked list
+    int A_circular[] = {2,4,6,8};
+    int len_array = 4;
+    int head_pos = 2;
+    struct Node *head;
+    head = CreateCircular(A_circular,head_pos,len_array);  
+    DisplayCircular(head);
+
     return 0;
 }
 
