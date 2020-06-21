@@ -41,7 +41,7 @@ struct Node* Merge(struct Node* list1, struct Node* list2)
     struct Node* first;
     // this is allocating the memory in the heap
     first = (struct Node*)malloc(sizeof(struct Node));
-    first = merged;
+    merged = first;
 
     while(list1->next!=NULL && list2->next!=NULL)
     {
@@ -95,7 +95,6 @@ int main()
     list1  = Create(list1,A,5);
     list2 = Create(list2,B,5);
     struct Node *merged;
-    Display(list1);
     merged = Merge(list1,list2);
     Display(merged);
     return 0;
