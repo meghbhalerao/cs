@@ -57,6 +57,48 @@ do
 
 }
 
+struct Node* Delete(struct Node* head, int delete_pos)
+{
+    // go to the particular element that you want to delete
+    struct Node* ptr_ahead = head;
+    struct Node* ptr_behind = head;
+    struct Node *ptr = head;
+    if(delete_pos!=1)
+    {
+    // move the ahead pointer to the node to be deleted
+    for(int i = 0; i < delete_pos; i++)
+    {
+        ptr_ahead = ptr_ahead->next;
+    }
+    // now we have reached the element to  be deleted 
+    // move the behind pointer to one node before the node to be deleted
+    for(int i = 0; i < delete_pos-1; i++)
+    {
+        ptr_behind = ptr_behind->next;
+    }
+    // skipping the node to be deleted
+    ptr_behind->next = ptr_ahead->next;
+    }
+    if(delete_pos ==1)
+    {   
+        // here call a function to find the length of the linked list - but here we use the length directly to avoid confusion - length of the circular LL
+        int length = 4;
+        for(int i=0;i<length;i++)
+        {
+            ptr_behind = ptr_behind->next;
+
+        }
+        // moving the ahead pointer to the necessary position
+        ptr_ahead = ptr_ahead->next;
+        ptr_behind->next = ptr_ahead->next;
+        head = ptr_behind;
+
+    }
+
+
+return head;
+
+}
 int main()
 {   // array to store value in a circular linked list
     int A_circular[] = {2,4,6,8};
@@ -65,7 +107,12 @@ int main()
     struct Node *head;
     head = CreateCircular(A_circular,head_pos,len_array);  
     DisplayCircular(head);
-
+    printf("\n");
+    // function to delete linked list
+    // which position to delete starting from head index - head index is 1
+    int delete_pos = 1;
+    struct Node *deleted_head = Delete(head,delete_pos);
+    DisplayCircular(deleted_head);
     return 0;
 }
 
