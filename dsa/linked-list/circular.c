@@ -81,24 +81,39 @@ struct Node* Delete(struct Node* head, int delete_pos)
     }
     if(delete_pos ==1)
     {   
-        // here call a function to find the length of the linked list - but here we use the length directly to avoid confusion - length of the circular LL
-        int length = 4;
-        for(int i=0;i<length;i++)
-        {
-            ptr_behind = ptr_behind->next;
-
-        }
-        // moving the ahead pointer to the necessary position
-        ptr_ahead = ptr_ahead->next;
-        ptr_behind->next = ptr_ahead->next;
-        head = ptr_behind;
-
+    // here call a function to find the length of the linked list - but here we use the length directly to avoid confusion - length of the circular LL
+    int length = 4;
+    for(int i=0;i<length;i++)
+    {
+        ptr_behind = ptr_behind->next;
     }
-
-
+    // moving the ahead pointer to the necessary position
+    ptr_ahead = ptr_ahead->next;
+    ptr_behind->next = ptr_ahead->next;
+    head = ptr_behind;
+    }
 return head;
-
 }
+
+
+struct Node* Insert(struct Node* head, int insert_pos, int val)
+{
+    // make the new node to be inserted and putting the value
+    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
+    // pointer which goes to the particular node
+    struct Node* ptr = head;
+    node->data = val;
+    for(int i = 0;i<insert_pos-1;i++)
+    {
+        ptr = ptr->next;
+    }
+    node->next = ptr->next;
+    ptr->next = node;
+    
+    return head;
+}
+
+// main function
 int main()
 {   // array to store value in a circular linked list
     int A_circular[] = {2,4,6,8};
@@ -110,9 +125,17 @@ int main()
     printf("\n");
     // function to delete linked list
     // which position to delete starting from head index - head index is 1
-    int delete_pos = 1;
+    int delete_pos = 2;
     struct Node *deleted_head = Delete(head,delete_pos);
     DisplayCircular(deleted_head);
+
+    printf("\n");
+    // part to insert in a circular linked list at a given position
+
+    int insert_pos = 3;
+    int num = -100;
+    struct Node *inserted_head = Insert(deleted_head,insert_pos,num);
+    DisplayCircular(inserted_head);
     return 0;
 }
 
