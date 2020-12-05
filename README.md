@@ -1,4 +1,4 @@
-# cs-stuff 
+# CS
 This repository contains the codes for some MOOC Computer Science courses that I decided to take up. This is still in progress. These courses are available on [Udemy](www.udemy.com). 
 
 ## Brief Description 
