@@ -14,24 +14,6 @@ Explanation: We can put 3 'B' in one basket and two 'C' in the other basket.
 This can be done if we start with the second letter: ['B', 'C', 'B', 'B', 'C']
 '''
 
-def solution(fruit):
-    left = 0 
-    right = 0 
-    
-
-
-
-
-def main():
-    a = ['A', 'B', 'C', 'A', 'C']
-    b = ['A', 'B', 'C', 'B', 'B', 'C']
-
-
-if __name__ == '__main__':
-    main()
-
-
-
 
 
 
